@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <stdio.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -29,35 +30,25 @@ void draw()
 		{
 			if (j == 0)
 				cout << "&";
-			
-			
-
 			if (x == j && y == i)
-			{
 				cout << "O";
-			}
-
-
 			else if (frx == j && fry == i)
 			{
 				cout << "f";
 			}
-
-			else// if(j > 0 && j < width)
+			else
 			{
 				bool prnt_spc = true;
-
+				//print the tail or a space
 				for (int k = 0; k < tail_lnth; k++)
 					if (snk_tail[k][0] == j && snk_tail[k][1] == i)
 					{
 						cout << "o";
 						prnt_spc = false;
 					}
-				
 				if(prnt_spc)
 					cout << " ";
 			}
-
 			if (j == width - 1)
 				cout << "&";
 		}
@@ -71,7 +62,6 @@ void draw()
 	cout << endl;
 	cout << "Score: " << score;
 }
-
 void input()
 {
 	//getting directions
@@ -99,7 +89,6 @@ void input()
 		}
 	}
 }
-
 void logic()
 {
 	int prevX = x, prevY = y;
@@ -172,8 +161,10 @@ int main()
 {
 	system("color 02");
 	
-	cout << "Enter keys W, S, D, A to move up, down, right, left respectively" << endl;
-	//sleep(500);
+	cout << "Enter keys W, S, D, A to move up, down, right, left respectively.\n\n";
+	draw();
+	Sleep(5000);
+	
 	while (!endgame)
 	{
 		system("cls");
